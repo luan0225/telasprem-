@@ -1,0 +1,555 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #6b7a89;
+    color: white;
+    position: sticky; /* Muda de fixed para sticky */
+    top: 0; /* Fica no topo da tela ao rolar */
+    z-index: 1000;
+    border-bottom: 2px solid #2f2a45;
+}
+
+main {
+    margin-top: 10px; /* Ajuste conforme a altura do seu header */
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+.logo img {
+    height: 60px;
+    animation: rotate 45s linear infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.carrinho {
+    cursor: pointer;
+    position: relative;
+}
+.carrinho img {
+    height: 30px;
+}
+.itens-carrinho {
+display: none;
+position: absolute;
+right: 0;
+top: 10px;
+background: rgb(53, 90, 160);
+border: 1px solid #2f2a45;
+border-radius: 5px;
+padding: 20px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+z-index: 999;
+max-height: 300px; /* Altura máxima do carrinho */
+overflow-y: auto; /* Rolagem quando o conteúdo ultrapassar a altura */
+width: 200px; /* Largura fixa */
+}
+.itens-carrinho ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.item-carrinho img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+
+h1 {
+    font-size: 2.5em;
+    color: #2f2a45;
+    margin: 20px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    margin: 20px auto;
+    border: 2px solid #2f2a45;
+    border-radius: 10px;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.10s ease;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: none;
+}
+
+.carousel-images img.active {
+    display: block;
+}
+
+.produtos {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.produto {
+    border: 1px solid #2f2a45;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    background-color: #f4f4f4;
+    position: relative;
+}
+
+.opcoes {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.btn-opcoes {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0; /* Espaço entre a imagem e o botão */
+    font-size: 16px;
+    text-align: center;
+    background-color: #007bff; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-opcoes:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+
+.option-button {
+    background-color: #6b7a89;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.option-button.selected {
+    background-color: #2f2a45;
+}
+
+.option-button:hover {
+    background-color: #4a6a7b;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .logo img {
+        height: 50px;
+    }
+    nav {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+    nav a {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+    nav a {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+
+
+.remove-button {
+background-color: #e74c3c; /* Cor de fundo vermelha */
+color: white; /* Cor do texto branco */
+border: none;
+padding: 5px 10px;
+border-radius: 5px;
+cursor: pointer;
+margin-left: 15px; /* Ajuste esse valor conforme necessário */
+}
+
+
+.remove-button:hover {
+background-color: #c0392b; /* Cor de fundo vermelha mais escura ao passar o mouse */
+}
+
+#btn-finalizar {
+    background-color: #2f2a45; /* Cor do botão */
+    color: white; /* Cor do texto */
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px; /* Margem superior para separar do total */
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Ocupa toda a largura do carrinho */
+}
+
+#btn-finalizar:hover {
+    background-color: #4a6a7b; /* Cor ao passar o mouse */
+}
+
+
+/* Estilos Gerais para a Página de Checkout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Fundo cinza claro */
+}
+
+header {
+    background-color: #6b7a89; /* Cor do cabeçalho */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.produto-imagem {
+    width: 30%; /* Ajusta a imagem para ocupar toda a largura do produto */
+    max-height: 100px; /* Limita a altura máxima */
+    object-fit: cover; /* Garante que a imagem se adapte ao espaço */
+    border-radius: 5px; /* Borda arredondada, opcional */
+    margin-bottom: 30px; /* Espaçamento entre a imagem e o título */
+}
+
+/* Estilo Geral */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffa500; /* Cor do título */
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    color: #ffa500;
+    text-decoration: underline;
+}
+
+/* Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-links a img:hover {
+    transform: scale(1.1);
+}
+
+/* Seção de Direitos Autorais */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #aaa;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+
+.promo-banner {
+    background-color: #36afd0b1; /* Cor de fundo vermelha para urgência */
+    color: rgb(0, 0, 0); /* Texto branco */
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espaço abaixo do banner */
+}
+
+.promo-banner h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.promo-banner p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.promo-banner .subtext {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: #1c29b7; /* Cor de destaque amarela */
+    color: black;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #FFB600; /* Cor de hover */
+}
+
+
+/* estilos da aba de promiocao */
+/* Estilos Globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Banner de Promoção */
+.promo-banner {
+    background: linear-gradient(45deg, #ff4b5c, #f9a826);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.promo-banner .promo-text h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.promo-banner .promo-text p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.promo-banner .cta-btn {
+    background-color: #fff;
+    color: #f9a826;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.promo-banner .cta-btn:hover {
+    background-color: #f9a826;
+    color: white;
+}
+
+/* Página de Produtos */
+.promo-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    justify-items: center;
+}
+
+.product {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.product h3 {
+    font-size: 1.8rem;
+    margin: 20px 0 10px;
+    color: #333;
+}
+
+.product .price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #f9a826;
+}
+
+.product p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.product .cta-btn {
+    background-color: #f9a826;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 20px 0;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.product .cta-btn:hover {
+    background-color: #ff4b5c;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .promo-banner {
+        padding: 30px 15px;
+    }
+
+    .promo-banner .promo-text h2 {
+        font-size: 2rem;
+    }
+
+    .promo-banner .promo-text p {
+        font-size: 1rem;
+    }
+
+    .promo-products {
+        padding: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .product {
+        max-width: 100%;
+    }
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9rem;
+    width: 100%;
+    bottom: 0;
+}

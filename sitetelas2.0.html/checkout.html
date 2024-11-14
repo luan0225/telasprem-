@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="stylescheck.css"> <!-- Adicione aqui -->
+</head>
+<body>
+
+<h1>Finalize sua compra</h1>
+
+<form id="checkout-form" onsubmit="event.preventDefault(); enviarDadosWhatsApp();">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required>
+
+    <label for="forma-pagamento">Forma de pagamento:</label>
+    <select id="forma-pagamento" required>
+        <option value="pix">Pix</option>
+        <option value="qrcode">QRcode</option>
+    </select>
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" required>
+
+    <button type="submit">Enviar Informações</button>
+</form>
+
+<script>
+    // Carregar carrinho do localStorage
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const totalCarrinho = parseFloat(localStorage.getItem('totalCarrinho')) || 0;
+
+    function enviarDadosWhatsApp() {
+        const nome = document.getElementById('nome').value;
+        const formaPagamento = document.getElementById('forma-pagamento').value;
+        const telefone = document.getElementById('telefone').value;
+
+        // Criar uma mensagem com as informações do formulário
+        let mensagem = `Nome: ${nome}\nForma de pagamento: ${formaPagamento}\nTelefone: ${telefone}\n\nProdutos:\n`;
+
+        // Adiciona os produtos do carrinho
+        carrinho.forEach(item => {
+            mensagem += `${item.produto} - R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
+        });
+
+        // Adicionar total à mensagem
+        mensagem += `\nTotal: R$ ${totalCarrinho.toFixed(2).replace('.', ',')}`;
+
+        // Codifica a mensagem para URL
+        const mensagemCodificada = encodeURIComponent(mensagem);
+        
+        // Cria o link do WhatsApp
+        const linkWhatsApp = `https://wa.me/5592994289392?text=${mensagemCodificada}`;
+
+        // Redireciona para o WhatsApp
+        window.open(linkWhatsApp, '_blank');
+    }
+
+    // Exibir produtos no checkout
+    const listaProdutos = document.createElement('ul');
+    carrinho.forEach(item => {
+        const li = document.createElement('li');
+        li.innerText = `${item.produto} - R$ ${item.preco.toFixed(2).replace('.', ',')}`;
+        listaProdutos.appendChild(li);
+    });
+    document.body.appendChild(listaProdutos);
+
+    // Exibir total no checkout
+    const totalElement = document.createElement('p');
+    totalElement.innerText = `Total: R$ ${totalCarrinho.toFixed(2).replace('.', ',')}`;
+    document.body.appendChild(totalElement);
+</script>
+
+</body>
+</html>

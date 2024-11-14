@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Assinaturas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo Arthur Lian">
+    </div>
+    <nav>
+        <a href="#produtos">Produtos</a>
+        <a href="#" id="combos-link">Combos</a>
+        <a href="#doacao">Doação</a>
+        <a href="https://wa.me/5592994289392" style="color:white;">Suporte</a>
+        <div class="carrinho" onclick="toggleCarrinho()">
+            <img src="images/carrinho.png" alt="Carrinho de Compras">
+            <div class="itens-carrinho" id="itens-carrinho">
+                <ul id="lista-itens"></ul>
+                <p id="total-carrinho">Total: R$ 0,00</p>
+                <a href="checkout.html" id="btn-finalizar">Finalizar Compra</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <h1>Catálogo</h1>
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="images/catalogo1.png" alt="Imagem 1" class="active">
+            <img src="images/catalogo3.png" alt="Imagem 2">
+            <img src="images/catalogo4.png" alt="Imagem 3">
+            <img src="images/carrosel2.png" alt="Imagem 4">
+            <img src="images/carrosel6.png" alt="Imagem 5">
+            <img src="images/carrosel17.png" alt="Imagem 6">
+        </div>
+    </div>
+
+    <h2>Produtos</h2>
+    <div class="produtos">
+        <div class="produto">
+            <h3>Prime Video</h3>
+            <!-- Adicione a imagem do produto aqui -->
+            <img src="images/prime.png" alt="Prime Video" class="produto-imagem">
+            <button class="btn-opcoes" onclick="toggleOpcoes(this)" aria-expanded="false">Adicionar opções</button>
+            <div class="opcoes">
+                <button class="option-button" onclick="selectOption(this, 'images/prime.png')">primeVideo - R$ 10,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/prime+max.png')">prime+max - R$ 21,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/prime-telecine.png')">prime+Telecine - R$ 20,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/prime-telecine-max.png')">prime+Telecine+max - R$ 30,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/prime-telecine-max-premiere.png')">prime+Telecine+max+premiere - R$ 35,00</button>
+            </div>
+        </div>
+        <div class="produto">
+            <h3>Netflix</h3>
+             <!-- Adicione a imagem do produto aqui -->
+             <img src="images/netflix.png" alt="netflix" class="produto-imagem">
+             <button class="btn-opcoes" onclick="toggleOpcoes(this)" aria-expanded="false">Adicionar opções</button>
+            <div class="opcoes">
+                <button class="option-button" onclick="selectOption(this, 'images/netflix.png')">Netflix 1 mês - R$ 21,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/netflix.png')">Netflix 2 meses - R$ 39,00</button>
+            </div>
+        </div>
+        <div class="produto">
+            <h3>Disney+Star</h3>
+             <!-- Adicione a imagem do produto aqui -->
+             <img src="images/disney.png" alt="disney" class="produto-imagem">
+             <button class="btn-opcoes" onclick="toggleOpcoes(this)" aria-expanded="false">Adicionar opções</button>
+            <div class="opcoes">
+                <button class="option-button" onclick="selectOption(this, 'images/disney.png')">Disney+Star 1 mês - R$ 15,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/disney.png')">Disney+Star 2 meses - R$ 30,00</button>
+            </div>
+        </div>
+        <div class="produto">
+            <h3>GloboPlay</h3>
+             <!-- Adicione a imagem do produto aqui -->
+             <img src="images/globoPlay.png" alt="globoPlay" class="produto-imagem">
+             <button class="btn-opcoes" onclick="toggleOpcoes(this)" aria-expanded="false">Adicionar opções</button>
+            <div class="opcoes">
+                <button class="option-button" onclick="selectOption(this, 'images/globoPlay.png')">GloboPlay sem canais - R$ 15,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/globo+premiere.png')">GloboPlay sem canais + premiere - R$ 25,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/Globo+canais.png')">GloboPlay+ Canais + premiere - R$ 35,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/globo+combat.png')">GloboPlay+canais+Premiere+Combat - R$ 45,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/globoPlay.png')">GloboPlay+canais - R$ 18,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/globo+tele.png')">GloboPlay sem canais + telecine - R$ 25,00</button>
+            </div>
+        </div>
+
+        <div class="produto">
+            <h3>Premiere</h3>
+             <!-- Adicione a imagem do produto aqui -->
+             <img src="images/premiere.png" alt="Primiere" class="produto-imagem">
+             <button class="btn-opcoes" onclick="toggleOpcoes(this)" aria-expanded="false">Adicionar opções</button>
+            <div class="opcoes">
+                <button class="option-button" onclick="selectOption(this, 'images/premiere.png')">premiere - R$ 25,00</button>
+            </div>
+        </div>
+
+        <div class="produto">
+            <h3>Telecine</h3>
+             <!-- Adicione a imagem do produto aqui -->
+             <img src="images/telecine.png" alt="telecine" class="produto-imagem">
+             <button class="btn-opcoes" onclick="toggleOpcoes(this)" aria-expanded="false">Adicionar opções</button>
+            <div class="opcoes">
+                <button class="option-button" onclick="selectOption(this, 'images/telecine.png')">telecine - R$ 20,00</button>
+            </div>
+        </div>
+
+        <div class="produto">
+            <h3>Crunchyroll</h3>
+             <!-- Adicione a imagem do produto aqui -->
+             <img src="images/crunchyroll.png" alt="crunchyroll" class="produto-imagem">
+             <button class="btn-opcoes" onclick="toggleOpcoes(this)" aria-expanded="false">Adicionar opções</button>
+            <div class="opcoes">
+                <button class="option-button" onclick="selectOption(this, 'images/crunchyroll.png')">crunchyroll - 1 mês R$ 20,00</button>
+                <button class="option-button" onclick="selectOption(this, 'images/crunchyroll.png')">crunchyroll - 1 ano R$ 50,00</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="promo-banner">
+        <div class="promo-text">
+            <h2>Promoção Relâmpago!</h2>
+            <p>5% OFF até meia-noite!</p>
+            <p class="subtext">Não perca, o tempo está correndo!</p>
+        </div>
+        <a href="produtos-promocao.html" class="cta-btn">Compre Agora</a>
+    </div>
+    
+    <div class="countdown" id="countdown"></div>
+
+<script>
+    var countDownDate = new Date().getTime() + 3600 * 1000; // 1 hora de contagem regressiva
+
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "Oferta Expirada";
+        }
+    }, 1000);
+</script>
+    
+   
+</main>
+
+<script src="script.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Seção Sobre -->
+        <div class="footer-section">
+            <h4>Sobre nós</h4>
+            <p>Oferecemos os melhores serviços de streaming com combinações de pacotes para todos os gostos. Nossos produtos garantem entretenimento de qualidade por um preço acessível.</p>
+        </div>
+
+        <!-- Navegação Rápida -->
+        <div class="footer-section">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Planos</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Ajuda</a></li>
+            </ul>
+        </div>
+
+        <!-- Contato -->
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <ul>
+                <li><a href="tel:+1234567890">Telefone: +55 (92) 994289392</a></li>
+                <li><a href="mailto:contato@seusite.com">Email: lincolnluan109@gmail.com</a></li>
+                <li>Endereço: Rua Alegria 3435, itacoatiara Amazonas</li>
+            </ul>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div class="footer-section">
+            <h4>Siga-nos</h4>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram"></a>
+                <a href="https://wa.me/5592994289392" aria-label="whatssap"><img src="images/whatssap.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Direitos Autorais -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 ArthurLyan. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+</html>
